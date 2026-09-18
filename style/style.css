@@ -1,0 +1,23 @@
+:root{
+    --border-blue: #81B6FF;
+    --dropschadow-blue: #0055FF; /*70% (0,1) blur(4)*/
+    --star-blue: #3A8CFF;
+    --star-white: #FFFFFF;
+    --star-goldS: #FFCF69;
+    --star-grayS: #D9D9D9;
+    --bc: #fffff;
+}
+
+*{
+    margin: 0;
+    overflow: hidden;
+}
+
+body{
+    background-color: var(--bc);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    aspect-ratio: 1;
+}
+
