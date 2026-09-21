@@ -25,7 +25,13 @@
     </header>
 
     <main>
-
+        <div id="main">
+            <div id="mii">
+                <img src="../media/mii.png" alt="Mii face" class="mii-img">
+                <button id="confirm">Confirm</button>
+            </div>
+            <div id="box"></div>
+        </div>
     </main>
 </body>
 </html>

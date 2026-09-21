@@ -1,2 +1,2 @@
 <?php
-include "views/profile.php";
+include "views/profile_view.php";
