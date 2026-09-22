@@ -17,13 +17,42 @@
     <h1>Wivote</h1>
 </div>
 <div class="choices">
-    <div class="choice"></div>
-    <div class="choice"></div>
-    <div class="choice"></div>
-    <div class="choice"></div>
-    <div class="choice"></div>
-    <div class="choice"></div>
+    <div class="choice">
+        <img src="../img/test.jpg" alt="">
+        <div class="choice-text">
+            <p id="catogorie">Food</p>
+            <div>sterren</div>
+        </div>
+    </div>
+    <div class="choice">
+        <img src="../img/test.jpg" alt="">
+        <div class="choice-text">
+            <p id="catogorie">Food</p>
+            <div>sterren</div>
+        </div>
+    </div>
+    <div class="choice">
+        <img src="../img/test.jpg" alt="">
+        <div class="choice-text">
+            <p id="catogorie">Food</p>
+            <div>sterren</div>
+        </div>
+    </div>
+    <div class="choice">
+        <img src="../img/test.jpg" alt="">
+        <div class="choice-text">
+            <p id="catogorie">Food</p>
+            <div>sterren</div>
+        </div>
+    </div>
 </div>
 <header></header>
+<footer class="bottom">
+    <button class="bottom-button home">Home</button>
+    <div class="username">Username</div>
+    <button class="bottom-button profile">Profile</button>
+</footer>
+<button class="menu-button">Menu</button>
+
 </body>
 </html>
