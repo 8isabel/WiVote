@@ -60,7 +60,7 @@ body {
     border: 3px solid #72adff;
     border-top: none;
     border-radius: 0 0 28px 28px;
-    box-shadow: 0 4px 8px 0 var(--dropschadow-blue);
+    box-shadow: 0 4px 8px 0 #72adff;
     transition:
             height 0.2s ease,
             transform 0.2s ease,
@@ -68,14 +68,14 @@ body {
 }
 
 .selectbox:hover {
-    box-shadow: 0 4px 8px 0 var(--dropschadow-blue);
+    box-shadow: 0 4px 8px 0 #72adff;
     height: clamp(80px, 10vh, 120px);
 }
 
 .selectbox.selected {
     height: clamp(55px, 7vh, 78px);
     transform: translateY(-10px);
-    box-shadow: 0 4px 8px 0 var(--dropschadow-blue);
+    box-shadow: 0 4px 8px 0 #72adff;
 }
 
 #main {
@@ -101,6 +101,8 @@ body {
     justify-content: center;
     align-items: center;
     gap: clamp(15px, 3vh, 30px);
+    border: 4px solid var(--star-blue);
+    border-radius: var(--radius);
 }
 
 .mii-img {
