@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e06787d6-711c-4b26-a7c2-4dec1f804454" name="plesk" url="http://145.118.2.73">
+        <fileTransfer rootFolder="/httpdocs/WiVote" host="145.118.2.73" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

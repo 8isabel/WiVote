@@ -2,7 +2,7 @@
 require 'config/con.php';
 
 try{
-    $query = "SELECT * FROM `login`";
+    $query = "SELECT * FROM `users`";
     $stmt = $conn->prepare($query);
     $stmt->execute();
 

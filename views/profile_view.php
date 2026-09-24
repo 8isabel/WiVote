@@ -8,10 +8,10 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="../js/profile_view.js" defer></script>
+    <script src="js/profile_view.js" defer></script>
     <link href='https://fonts.googleapis.com/css?family=Turret Road' rel='stylesheet'>
     <link href="https://fonts.cdnfonts.com/css/porter-sans-block" rel="stylesheet">
-    <link rel="stylesheet" href="../style/profile_view.css">
+    <link rel="stylesheet" href="style/profile_view.css">
 </head>
 <body>
 
