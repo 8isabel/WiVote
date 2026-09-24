@@ -4,7 +4,7 @@ error_reporting(E_ALL);
  
 $servername = "localhost";
 $username = "wivote";
-$password = "T2009I2006!%";
+$password = "T2009I2006!";
 $database = "db_wivote";
  
 $options = [

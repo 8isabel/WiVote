@@ -14,6 +14,21 @@
     <link rel="stylesheet" href="../style/profile_view.css">
 </head>
 <body>
+
+<body>
+
+    <?php if (!$isLoggedIn): ?>
+        <div class="login-overlay">
+            <div class="login-box">
+                <h2>Welcome</h2>
+                <p>You need an account to edit your profile.</p>
+                <div class="login-buttons">
+                    <a href="login.php">Login</a>
+                    <a href="register.php">Register</a>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
     <header class="top">
         <div class="selectbox selected"></div>
         <div class="selectbox"></div>
