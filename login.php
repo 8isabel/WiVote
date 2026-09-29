@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once 'config.php';
+require_once 'config/con.php';
 
 if (isset($_SESSION['user_id'])) {
     header("Location: index.php");
@@ -14,10 +14,11 @@ $error = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
+
     if ($email === '' || $password === '') {
-        $error = 'Vul je e-mailadres en wachtwoord in.';
+        $error = 'fill in your email and password';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = 'Vul een geldig e-mailadres in.';
+        $error = 'fill in an valid email adres.';
     } else {
         $stmt = $conn->prepare("
             SELECT id, username, email, password, role
@@ -33,14 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             session_regenerate_id(true);
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-            $_SESSION['email'] = $user['email'];
             $_SESSION['role'] = $user['role'];
             header("Location: index.php");
             exit;
         } else {
-            $error = 'E-mailadres of wachtwoord is onjuist.';
+            $error = 'email or password is incorrect';
         }
     }
 }
 
-require_once 'login_view.php';
+require_once 'views/login_view.php';
