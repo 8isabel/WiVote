@@ -5,12 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="66e300a3-a8c7-47c2-a917-c7d0759a2d87" name="Changes" comment="Merged profile with main">
-      <change afterPath="$PROJECT_DIR$/views/login_view.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/register_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/profile_view.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/profile_view.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/login.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/profile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style/profile_view.css" beforeDir="false" afterPath="$PROJECT_DIR$/style/profile_view.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/login_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/login_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/profile_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/profile_view.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/register_view.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/register_view.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +52,7 @@
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/8isabel/WiVote.git",
-    "accountId": "6c5562da-bbe2-434f-8957-ffb5dff74175"
+    "accountId": "6a7c42a3-c3ae-404b-bdaa-b40adbe19154"
   }
 }]]></component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.4.10/bin/php" />
@@ -100,6 +105,7 @@
       <option name="presentableId" value="Default" />
       <updated>1790066254705</updated>
       <workItem from="1790066255779" duration="5124000" />
+      <workItem from="1790843472956" duration="1230000" />
     </task>
     <task id="LOCAL-00001" summary="Finished profile.php">
       <option name="closed" value="true" />

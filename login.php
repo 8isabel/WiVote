@@ -10,15 +10,16 @@ if (isset($_SESSION['user_id'])) {
 }
 
 $error = '';
+$email = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
 
     if ($email === '' || $password === '') {
-        $error = 'fill in your email and password';
+        $error = 'Please fill in your email and password.';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = 'fill in an valid email adres.';
+        $error = 'Please fill in a valid email address.';
     } else {
         $stmt = $conn->prepare("
             SELECT id, username, email, password, role
@@ -38,9 +39,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             header("Location: index.php");
             exit;
         } else {
-            $error = 'email or password is incorrect';
+            $error = 'That email or password is incorrect.';
         }
     }
+
+    $email = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
 }
 
 require_once 'views/login_view.php';

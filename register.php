@@ -2,28 +2,31 @@
 session_start();
 require_once 'config/con.php';
 
+if (isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+    exit;
+}
+
 $error = '';
+$name = '';
+$email = '';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $name = $_POST['name'] ?? '';
-    $email = $_POST['email'] ?? '';
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
+    $confirmPassword = $_POST['confirm_password'] ?? '';
 
-    $name = trim($name);
-    $email = trim($email);
-
-    if ($name === '' || $email === '' || $password === '') {
-        $error = 'Fill in all the required fields.';
-    }
-    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error = 'Vul een geldig e-mailadres in.';
-    }
-    elseif (strlen($password) < 8) {
+    if ($name === '' || $email === '' || $password === '' || $confirmPassword === '') {
+        $error = 'Please fill in all the required fields.';
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $error = 'Please fill in a valid email address.';
+    } elseif (strlen($password) < 8) {
         $error = 'Your password must be at least 8 characters long.';
-    }
-
-    else {
+    } elseif ($password !== $confirmPassword) {
+        $error = 'The passwords do not match.';
+    } else {
         $stmt = $conn->prepare("
         SELECT id
         FROM users
@@ -48,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 ':password' => password_hash($password, PASSWORD_DEFAULT),
                 ':role' => 'user'
             ]);
-            header('Location: login.php');
+            header('Location: login.php?registered=1');
             exit;
         }
     }
