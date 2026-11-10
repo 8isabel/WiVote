@@ -1,0 +1,675 @@
+:root {
+    --border-blue: #81B6FF;
+    --dropschadow-blue: #0055FF;
+    --star-blue: #3A8CFF;
+    --star-goldS: #FFCF69;
+    --star-grayS: #D9D9D9;
+    --bc: #FFFFFF;
+    --title: #0055FF;
+    --light-blue: #D9E9FF;
+    --error-red: #E33E3E;
+    --success-green: #2E9E5B;
+    --shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    --shadow-blue: 0 4px 10px rgba(0, 85, 255, 0.20);
+    --radius: 28px;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bc);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Turret Road';
+    font-size: 20px;
+    padding-bottom: 20vh;
+}
+
+.title {
+    font-family: 'Porter Sans Block', sans-serif;
+    color: var(--title);
+    opacity: 60%;
+    padding: 4vh 0 1vh;
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 90vw;
+    margin-bottom: 20px;
+}
+
+.filter-chip {
+    border: 2px solid var(--border-blue);
+    border-radius: 20px;
+    background: white;
+    color: #000;
+    padding: 2px 14px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.filter-chip:hover {
+    background: var(--light-blue);
+}
+
+.filter-chip.active {
+    background: var(--border-blue);
+    color: white;
+}
+
+.flash {
+    margin: 0 0 15px;
+    padding: 6px 18px;
+    border-radius: 20px;
+    border: 2px solid var(--success-green);
+    color: var(--success-green);
+    background: white;
+    font-size: 18px;
+}
+
+.new-poll-toggle {
+    display: block;
+    margin: 0 auto 25px;
+    background: white;
+    border: 3px solid var(--border-blue);
+    border-radius: 20px;
+    padding: 4px 22px;
+    font-size: 20px;
+    font-family: 'Turret Road';
+    color: #000;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.new-poll-toggle:hover {
+    background: var(--light-blue);
+    transition: 0.2s ease;
+}
+
+.empty-state {
+    width: min(90vw, 640px);
+    margin: 4vh 0 6vh;
+    padding: 40px 30px;
+    text-align: center;
+    border: 2px solid var(--border-blue);
+    border-radius: 30px;
+    background: white;
+    box-shadow: 0 4px 8px 0 var(--dropschadow-blue);
+}
+
+.empty-title {
+    font-family: 'Porter Sans Block', sans-serif;
+    color: var(--title);
+    font-size: clamp(20px, 3vw, 30px);
+    margin-bottom: 10px;
+}
+
+.empty-text {
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+.poll-grid {
+    width: 90vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 30px;
+    padding: 10px 10px 6vh;
+}
+
+.poll-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--border-blue);
+    border-radius: 30px;
+    background: white;
+    box-shadow: 0 4px 8px 0 var(--dropschadow-blue);
+    overflow: hidden;
+}
+
+.type-ribbon {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    font-size: 13px;
+    padding: 2px 12px;
+    border-radius: 14px;
+    color: white;
+    font-family: 'Turret Road';
+}
+
+.ribbon-poll {
+    background: var(--dropschadow-blue);
+}
+
+.ribbon-post {
+    background: #8A5CF6;
+}
+
+.poll-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.poll-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--light-blue), var(--border-blue));
+    font-family: 'Porter Sans Block', sans-serif;
+    font-size: 90px;
+    color: white;
+}
+
+.poll-body {
+    padding: 16px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.poll-title {
+    font-size: clamp(20px, 2vw, 26px);
+    color: #000;
+}
+
+.poll-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+}
+
+.poll-category {
+    border: 2px solid var(--border-blue);
+    border-radius: 20px;
+    padding: 0 10px;
+}
+
+.poll-author {
+    opacity: 0.7;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.mii-pfp {
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    display: inline-block;
+    border: 2px solid var(--border-blue);
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+}
+
+.mii-pfp svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.poll-votes {
+    margin-left: auto;
+    opacity: 0.8;
+}
+
+.post-content {
+    font-size: 17px;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+.poll-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.vote-button {
+    width: 100%;
+    font-family: 'Turret Road';
+    font-size: 18px;
+    background: white;
+    border: 2px solid var(--border-blue);
+    border-radius: 18px;
+    padding: 10px 14px;
+    cursor: pointer;
+    text-align: left;
+    transition: 0.15s ease;
+}
+
+.vote-button:hover {
+    background: var(--light-blue);
+    transform: scale(1.02);
+}
+
+.result {
+    display: grid;
+    grid-template-columns: minmax(90px, 1fr) 2fr 48px;
+    align-items: center;
+    gap: 10px;
+}
+
+.result-mine .result-name {
+    font-weight: bold;
+}
+
+.result-mine .result-fill {
+    background: var(--dropschadow-blue);
+}
+
+.result-name {
+    font-size: 17px;
+    overflow-wrap: anywhere;
+}
+
+.result-bar {
+    height: 16px;
+    border-radius: 10px;
+    background: var(--star-grayS);
+    overflow: hidden;
+}
+
+.result-fill {
+    height: 100%;
+    background: var(--border-blue);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+.result-percent {
+    text-align: right;
+    font-size: 16px;
+    opacity: 0.8;
+}
+
+.comments {
+    margin-top: 6px;
+    border-top: 2px dashed var(--light-blue);
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.comment-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    max-height: 220px;
+    overflow-y: auto;
+}
+
+.comment {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+}
+
+.comment .mii-pfp {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.comment.reply .mii-pfp {
+    width: 26px;
+    height: 26px;
+}
+
+.comment-body {
+    flex: 1;
+    min-width: 0;
+    background: var(--light-blue);
+    border-radius: 12px;
+    padding: 6px 12px;
+}
+
+.comment.reply .comment-body {
+    background: #EFF5FF;
+}
+
+.comment-head {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.comment-author {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.comment-text {
+    overflow-wrap: anywhere;
+    font-size: 14px;
+}
+
+.comment-meta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 2px;
+}
+
+.comment-time {
+    opacity: 0.6;
+    font-size: 11px;
+}
+
+.like-form {
+    display: inline;
+}
+
+.like-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 14px;
+    color: #9aa7b8;
+}
+
+.like-btn.liked {
+    color: #ff5a76;
+}
+
+.reply-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--star-blue);
+}
+
+.reply-form {
+    display: none;
+    margin-top: 8px;
+}
+
+.reply-form.open {
+    display: flex;
+}
+
+.reply-list {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 8px;
+    border-left: 2px solid var(--border-blue);
+}
+
+.no-comments {
+    font-size: 15px;
+    opacity: 0.6;
+}
+
+.comment-form {
+    display: flex;
+    gap: 8px;
+}
+
+.comment-form input {
+    flex: 1;
+    font-family: 'Turret Road';
+    font-size: 15px;
+    border: 2px solid var(--border-blue);
+    border-radius: 14px;
+    padding: 6px 12px;
+}
+
+.comment-form input:focus {
+    outline: none;
+    box-shadow: var(--shadow-blue);
+}
+
+.comment-form button {
+    font-family: 'Turret Road';
+    font-size: 15px;
+    border: 2px solid var(--border-blue);
+    border-radius: 14px;
+    background: white;
+    padding: 6px 16px;
+    cursor: pointer;
+}
+
+.comment-form button:hover {
+    background: var(--light-blue);
+}
+
+.comment-login {
+    font-size: 14px;
+    color: var(--star-blue);
+    text-decoration: underline;
+}
+
+.bottom {
+    position: fixed;
+    display: flex;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 14vh;
+    background: linear-gradient(to bottom, rgba(41, 159, 255, 0.3) 0%, rgba(228, 238, 255, 0.3) 74%);
+    clip-path: polygon(0 0, 30% 0, 40% 50%, 60% 50%, 70% 0, 100% 0, 100% 100%, 0 100%
+100%
+);
+	clip-path: polygon(0 0, 30% 0, 40% 50%, 60% 50%, 70% 0, 100% 0, 100% 100%, 0 100%);
+    z-index: 10;
+}
+
+.bottom.closed {
+    transform: translateY(calc(100% - 35px));
+}
+
+.menu-button.closed {
+    transform: translateX(-50%) translateY(calc(14vh - 35px));
+}
+
+.menu-button {
+    position: fixed;
+    left: 50%;
+    bottom: calc(14vh - 25px);
+    transform: translateX(-50%);
+    width: 5vw;
+    aspect-ratio: 1 / 1;
+    background: white;
+    border: 3px solid var(--border-blue);
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    font-size: 16px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.bottom-button {
+    position: absolute;
+    top: 42px;
+    width: 10vw;
+    height: 7vh;
+    background: white;
+    border: 3px solid var(--border-blue);
+    font-size: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.bottom-button:hover {
+    transition: 0.2s ease;
+    width: 14vw;
+}
+
+.home {
+    left: -20px;
+    border-radius: 0 45px 45px 0;
+}
+
+.profile {
+    right: -20px;
+    border-radius: 45px 0 0 45px;
+}
+
+.username-block {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.username {
+    font-family: "Turret Road";
+    font-size: clamp(25px, 3vw, 42px);
+    color: #000;
+}
+
+.logout-link {
+    font-family: "Turret Road";
+    font-size: 13px;
+    color: #0055FF;
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .poll-grid {
+        width: 100vw;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 20px 6vh;
+    }
+
+    .menu-button {
+        width: 14vw;
+    }
+
+    .bottom-button {
+        width: 30vw;
+    }
+
+    .bottom-button:hover {
+        width: 34vw;
+    }
+}
+
+.topics-label {
+    font-size: 22px;
+    color: #000;
+    opacity: 0.75;
+    margin: 10px 0 8px;
+}
+
+.topics-row {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    margin-bottom: 14px;
+}
+
+.topic-chip {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 150px;
+    max-width: 230px;
+    padding: 8px 14px 8px 8px;
+    border: 2px solid #81B6FF;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 3px 6px rgba(129, 182, 255, 0.4);
+    text-decoration: none;
+    color: inherit;
+}
+
+.topic-chip:hover {
+    background: #EAF3FF;
+}
+
+.topic-chip img,
+.topic-letter {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #CDE3FF, #81B6FF);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Porter Sans Block', sans-serif;
+    font-size: 20px;
+}
+
+.topic-chip-text {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.topic-chip-title {
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.topic-chip-votes {
+    font-size: 12px;
+    opacity: 0.65;
+}
+
+.delete-form {
+    margin: 0 0 0 auto;
+}
+
+.delete-btn {
+    font-family: 'Turret Road';
+    font-size: 13px;
+    color: var(--error-red);
+    background: white;
+    border: 2px solid var(--error-red);
+    border-radius: 14px;
+    padding: 2px 12px;
+    cursor: pointer;
+}
+
+.delete-btn:hover {
+    background: var(--error-red);
+    color: white;
+}

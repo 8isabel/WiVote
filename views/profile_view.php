@@ -1,4 +1,4 @@
-<?
+<?php
 $categoryIcons = [
     'face_shape'  => '<circle cx="12" cy="12" r="8"/><circle cx="9" cy="10" r="0.8" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="0.8" fill="currentColor" stroke="none"/><path d="M9 15c1 1 5 1 6 0"/>',
     'hair'        => '<path d="M5 13c0-5 3-8 7-8s7 3 7 8" /><path d="M5 13l1-5M9 13l0.5-6M12 13V5M15 13l-0.5-6M19 13l-1-5"/>',
@@ -131,7 +131,12 @@ $categoryIcons = [
 
     <footer class="bottom">
         <a class="bottom-button home" href="index.php">Home</a>
-        <div class="username"><?= htmlspecialchars($currentUser['username'] ?? 'Username', ENT_QUOTES) ?></div>
+        <div class="username-block">
+            <div class="username"><?= htmlspecialchars($currentUser['username'] ?? 'Username', ENT_QUOTES) ?></div>
+            <?php if ($isLoggedIn): ?>
+                <a class="logout-link" href="logout.php">Logout</a>
+            <?php endif; ?>
+        </div>
         <a class="bottom-button profile" href="profile.php">Profile</a>
     </footer>
 
@@ -141,6 +146,7 @@ $categoryIcons = [
         window.MII_OPTIONS = <?= json_encode($avatarOptions) ?>;
         window.IS_LOGGED_IN = <?= $isLoggedIn ? 'true' : 'false' ?>;
     </script>
+    <script src="js/menu.js" defer></script>
     <script src="js/profile_view.js" defer></script>
     <script src="js/avatar.js" defer></script>
 </body>

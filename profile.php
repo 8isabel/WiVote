@@ -12,8 +12,7 @@ if ($isLoggedIn) {
         $stmt->execute([':id' => $_SESSION['user_id']]);
         $currentUser = $stmt->fetch();
     } catch (PDOException $e) {
-        // The gender/birthday/favorite_color/is_single columns don't exist yet
-        // (sql/users_profile_fields.sql hasn't been run). Fall back gracefully.
+
         $profileColumnsExist = false;
         $stmt = $conn->prepare('SELECT username, email FROM users WHERE id = :id LIMIT 1');
         $stmt->execute([':id' => $_SESSION['user_id']]);

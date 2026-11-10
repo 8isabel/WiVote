@@ -1,0 +1,328 @@
+:root {
+    --border-blue: #81B6FF;
+    --dropschadow-blue: #0055FF;
+    --star-blue: #3A8CFF;
+    --title: #0055FF;
+    --light-blue: #D9E9FF;
+    --success-green: #2E9E5B;
+    --shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    --shadow-blue: 0 4px 10px rgba(0, 85, 255, 0.20);
+    --radius: 28px;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFFFFF;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Turret Road';
+    font-size: 20px;
+    padding-bottom: 20vh;
+}
+
+.title {
+    font-family: 'Porter Sans Block', sans-serif;
+    color: var(--title);
+    opacity: 60%;
+    padding: 4vh 0 1vh;
+}
+
+.type-switch {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 20px;
+}
+
+.type-tab {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    text-decoration: none;
+    color: #000;
+    background: white;
+    border: 3px solid var(--border-blue);
+    border-radius: 20px;
+    padding: 8px 26px;
+    font-size: 20px;
+    font-family: 'Turret Road';
+    box-shadow: var(--shadow);
+}
+
+.type-tab:hover {
+    background: var(--light-blue);
+    transition: 0.2s ease;
+}
+
+.type-tab.active {
+    background: var(--border-blue);
+    color: white;
+}
+
+.type-hint {
+    font-size: 12px;
+    opacity: 0.75;
+}
+
+.flash {
+    margin: 0 0 15px;
+    padding: 6px 18px;
+    border-radius: 20px;
+    border: 2px solid var(--success-green);
+    color: var(--success-green);
+    background: white;
+    font-size: 18px;
+}
+
+.create-form {
+    width: min(90vw, 640px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border: 2px solid var(--border-blue);
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 var(--dropschadow-blue);
+    background: white;
+    padding: 28px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.field span {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.field input,
+.field select,
+.field textarea {
+    font-family: 'Turret Road';
+    font-size: 18px;
+    border: 2px solid var(--border-blue);
+    border-radius: 14px;
+    padding: 8px 12px;
+    background: white;
+    resize: vertical;
+}
+
+.file-input {
+    font-size: 15px;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    outline: none;
+    box-shadow: var(--shadow-blue);
+}
+
+.field-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.field-row .field {
+    flex: 1;
+    min-width: 200px;
+}
+
+.submit-button {
+    align-self: center;
+    background: white;
+    border: 3px solid var(--border-blue);
+    border-radius: 20px;
+    padding: 8px 34px;
+    font-size: 20px;
+    font-family: 'Turret Road';
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background: var(--light-blue);
+    transition: 0.2s ease;
+}
+
+.bottom {
+    position: fixed;
+    display: flex;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 14vh;
+    background-color: #FFFFFF;
+    background-image: linear-gradient(to bottom, rgba(41, 159, 255, 0.3) 0%, rgba(228, 238, 255, 0.3) 74%);
+    clip-path: polygon(
+            0 0,
+            30% 0,
+            40% 50%,
+            60% 50%,
+            70% 0,
+            100% 0,
+            100% 100%,
+            0 100%
+    );
+    z-index: 10;
+}
+
+.bottom.closed {
+    transform: translateY(calc(100% - 35px));
+}
+
+.menu-button.closed {
+    transform: translateX(-50%) translateY(calc(14vh - 35px));
+}
+
+.menu-button {
+    position: fixed;
+    left: 50%;
+    bottom: calc(14vh - 25px);
+    transform: translateX(-50%);
+    width: 5vw;
+    aspect-ratio: 1 / 1;
+    background: white;
+    border: 3px solid var(--border-blue);
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    font-size: 16px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.bottom-button {
+    position: absolute;
+    top: 42px;
+    width: 10vw;
+    height: 7vh;
+    background: white;
+    border: 3px solid var(--border-blue);
+    font-size: 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #000;
+}
+
+.bottom-button:hover {
+    transition: 0.2s ease;
+    width: 14vw;
+}
+
+.home {
+    left: -20px;
+    border-radius: 0 45px 45px 0;
+}
+
+.profile {
+    right: -20px;
+    border-radius: 45px 0 0 45px;
+}
+
+.username-block {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.username {
+    font-family: "Turret Road";
+    font-size: clamp(25px, 3vw, 42px);
+    color: #000;
+}
+
+.logout-link {
+    font-family: "Turret Road";
+    font-size: 13px;
+    color: #0055FF;
+    text-decoration: underline;
+}
+
+.login-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(0.3vh);
+    z-index: 100;
+}
+
+.login-box {
+    background: white;
+    border: 3px solid var(--border-blue);
+    border-radius: 24px;
+    box-shadow: var(--shadow-blue);
+    padding: 30px 40px;
+    text-align: center;
+}
+
+.login-box h2 {
+    color: var(--title);
+    margin-bottom: 8px;
+}
+
+.login-buttons {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 16px;
+}
+
+.login-buttons a {
+    text-decoration: none;
+    color: #000;
+    border: 2px solid var(--border-blue);
+    border-radius: 16px;
+    padding: 6px 20px;
+}
+
+.login-buttons a:hover {
+    background: var(--light-blue);
+}
+
+@media (max-width: 600px) {
+    .create-form {
+        padding: 20px;
+    }
+
+    .type-tab {
+        padding: 8px 16px;
+    }
+
+    .menu-button {
+        width: 14vw;
+    }
+
+    .bottom-button {
+        width: 30vw;
+    }
+
+    .bottom-button:hover {
+        width: 34vw;
+    }
+}

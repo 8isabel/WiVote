@@ -40,7 +40,7 @@
 
     function renderHair(idx, color) {
         const styles = [
-            ``, // 0 bald
+            ``,
             `<path d="M78,118 C78,46 222,46 222,118 L222,86 C222,60 78,60 78,86 Z" fill="${color}"/>`,
             `<path d="M78,110 L90,55 L105,95 L120,40 L135,90 L150,35 L165,90 L180,40 L195,95 L210,55 L222,110 L222,80 Q150,55 78,80 Z" fill="${color}"/>`,
             `<path d="M78,120 C78,48 222,48 222,120 L222,88 C222,62 78,62 78,88 Z" fill="${color}"/>
@@ -308,7 +308,6 @@
             }, 3000);
         }
     }
-
 
     async function loadMii() {
         try {
